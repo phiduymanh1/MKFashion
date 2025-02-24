@@ -1,9 +1,10 @@
-package com.example.shopquanaomk.Controller.Client;
+package com.example.shopquanaomk.Controller.Common;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/client/product")
-public class ClientProductController {
+@RequestMapping("/product")
+public class CommonProductController {
+
 }

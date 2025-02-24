@@ -14,4 +14,8 @@ public class tet {
     public String tet2(){
         return "layout/main";
     }
+    @GetMapping("/trang-chu")
+    public String tet3(){
+        return "admin/index";
+    }
 }

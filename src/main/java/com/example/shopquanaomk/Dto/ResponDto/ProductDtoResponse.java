@@ -1,8 +1,8 @@
-package com.example.shopquanaomk.Dto;
+package com.example.shopquanaomk.Dto.ResponDto;
 
 import java.math.BigDecimal;
 
-public class ProductDto {
+public class ProductDtoResponse {
     private Integer id;
     private String name;
     private String description;
@@ -14,10 +14,10 @@ public class ProductDto {
     private Integer brandId;
     private String imageUrl;
 
-    public ProductDto() {
+    public ProductDtoResponse() {
     }
 
-    public ProductDto(Integer id, String name, String description, BigDecimal price, Integer stock, Integer categoryId, Integer colorId, Integer sizeId, Integer brandId, String imageUrl) {
+    public ProductDtoResponse(Integer id, String name, String description, BigDecimal price, Integer stock, Integer categoryId, Integer colorId, Integer sizeId, Integer brandId, String imageUrl) {
         this.id = id;
         this.name = name;
         this.description = description;

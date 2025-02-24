@@ -1,6 +1,6 @@
 package com.example.shopquanaomk.Services.Admin;
 
-import com.example.shopquanaomk.Dto.ProductDto;
+import com.example.shopquanaomk.Dto.ResponDto.ProductDtoResponse;
 import com.example.shopquanaomk.Entity.Product;
 import com.example.shopquanaomk.Repository.ProductRepository;
 import org.modelmapper.ModelMapper;
@@ -16,7 +16,7 @@ public class AdminProductServices {
     }
 
 
-    public ProductDto convertToDTO(Product product) {
-        return modelMapper.map(product, ProductDto.class);
+    public ProductDtoResponse convertToDTO(Product product) {
+        return modelMapper.map(product, ProductDtoResponse.class);
     }
 }
