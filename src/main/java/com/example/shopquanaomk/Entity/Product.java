@@ -8,6 +8,8 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import java.math.BigDecimal;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 
 @Entity
@@ -56,6 +58,28 @@ public class Product {
     @Nationalized
     @Column(name = "image_url")
     private String imageUrl;
+
+    @OneToMany(mappedBy = "product" , cascade = CascadeType.ALL,orphanRemoval = true)
+    private Set<CartItem> cartItems = new LinkedHashSet<>();
+
+    @OneToMany(mappedBy = "product" , cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<OrderItem> orderItems = new LinkedHashSet<>();
+
+    public Set<OrderItem> getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderItems(Set<OrderItem> orderItems) {
+        this.orderItems = orderItems;
+    }
+
+    public Set<CartItem> getCartItems() {
+        return cartItems;
+    }
+
+    public void setCartItems(Set<CartItem> cartItems) {
+        this.cartItems = cartItems;
+    }
 
     public Integer getId() {
         return id;

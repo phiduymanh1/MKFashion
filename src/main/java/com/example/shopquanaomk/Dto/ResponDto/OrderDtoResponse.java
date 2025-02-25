@@ -10,7 +10,7 @@ public class OrderDtoResponse {
     private Integer id;
 
 
-    private String userName;
+    private String fullName;
 
 
     private BigDecimal totalPrice;
@@ -29,12 +29,12 @@ public class OrderDtoResponse {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public BigDecimal getTotalPrice() {
@@ -60,4 +60,5 @@ public class OrderDtoResponse {
     public void setCreatedAt(Instant createdAt) {
         this.createdAt = createdAt;
     }
+
 }
