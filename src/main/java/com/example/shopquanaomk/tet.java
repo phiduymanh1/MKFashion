@@ -1,21 +1,23 @@
 package com.example.shopquanaomk;
 
+import com.example.shopquanaomk.Services.uploadfile.impl.UploadImageFile;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
-@Controller
+import java.io.IOException;
+
+@RestController
+@RequestMapping("/api")
+
 public class tet {
-    @GetMapping("/anc")
-    public String tet(){
-        return "views/category";
-    }
-    @GetMapping("/load")
-    public String tet2(){
-        return "layout/main";
-    }
-    @GetMapping("/trang-chu")
-    public String tet3(){
-        return "admin/index";
-    }
+    @Autowired
+    private  UploadImageFile uploadImageFile;
+   @PostMapping("/uploadanh")
+    public String u(@RequestParam ("file") MultipartFile file) throws IOException {
+
+        return uploadImageFile.uploadImage(file);
+   }
 }
