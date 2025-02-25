@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/fragments/head::head"></head>
+<body class="hold-transition skin-blue sidebar-mini">
+
+<!-- Site wrapper -->
+<div class="wrapper">
+
+    <header th:replace="admin/fragments/header::header"></header>
+
+    <!-- =============================================== -->
+
+    <!-- Left side column. contains the sidebar -->
+    <aside th:replace="admin/fragments/sidebar::sidebar"></aside>
+
+    <!-- =============================================== -->
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div>
+                <button type="button" class="btn btn-info"><a th:href="@{/admin/product/new/save}">add product</a></button>
+            </div>
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="table-dark">
+                <tr>
+                    <td>Id</td>
+                    <td>name</td>
+                    <td>image</td>
+                    <td>price</td>
+                    <td>stock</td>
+                    <td>categoryId</td>
+                    <td>Color & Size & Brand</td>
+                    <td>description</td>
+                    <td>Action</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="product: ${products}">
+                    <td th:text="${product.id}"></td>
+                    <td th:text="${product.name}"></td><td>
+                    <img th:src="@{${product.imageUrl}}" width="60" height="60" alt="Hình ảnh sản phẩm">
+                </td>
+                    <td th:text="${product.price}"></td>
+                    <td th:text="${product.stock}"></td>
+                    <td th:text="${product.nameCategory}"></td>
+                    <td th:text="|${product.colorName} / ${product.sizeName} / ${product.brandName}|"></td>
+                    <td th:text="${product.description}"></td>
+
+
+                    <td >
+                        <!--                        <button type="submit">Detail</button>-->
+                        <a href="#" class="btn btn-info btn-sm">
+                            <i class="bi bi-eye"></i> Detail
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="pt">
+                <nav th:if="${totalPages > 1}">
+                    <ul class="pagination justify-content-center">
+                        <!-- Nút Previous -->
+                        <li class="page-item" th:classappend="${currentPage == 0} ? 'disabled'">
+                            <a class="page-link" th:if="${currentPage > 0}" th:href="@{/admin/product/views(page=${currentPage - 1})}"
+                               aria-label="Previous" data-bs-toggle="tooltip" title="Trang trước">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                            <span class="page-link" th:unless="${currentPage > 0}">&laquo;</span>
+                        </li>
+
+                        <!-- Trang đầu tiên -->
+                        <li class="page-item" th:if="${currentPage > 2}">
+                            <a class="page-link" th:href="@{/admin/product/views(page=0)}">1</a>
+                        </li>
+
+                        <!-- Dấu ... nếu trang hiện tại lớn hơn 3 -->
+                        <li class="page-item disabled" th:if="${currentPage > 3}">
+                            <span class="page-link">...</span>
+                        </li>
+
+                        <!-- Hiển thị các trang lân cận -->
+                        <li class="page-item" th:each="i : ${#numbers.sequence(currentPage - 2 > 0 ? currentPage - 2 : 0,
+                                                              currentPage + 2 < totalPages - 1 ? currentPage + 2 : totalPages - 1)}"
+                            th:classappend="${i == currentPage} ? 'active'">
+                            <a class="page-link" th:href="@{/admin/product/views(page=${i})}" th:text="${i + 1}"></a>
+                        </li>
+
+                        <!-- Dấu ... nếu còn nhiều trang phía sau -->
+                        <li class="page-item disabled" th:if="${currentPage < totalPages - 4}">
+                            <span class="page-link">...</span>
+                        </li>
+
+                        <!-- Trang cuối cùng -->
+                        <li class="page-item" th:if="${currentPage < totalPages - 3}">
+                            <a class="page-link" th:href="@{/admin/product/views(page=${totalPages - 1})}" th:text="${totalPages}"></a>
+                        </li>
+
+                        <!-- Nút Next -->
+                        <li class="page-item" th:classappend="${currentPage + 1 == totalPages} ? 'disabled'">
+                            <a class="page-link" th:if="${currentPage + 1 < totalPages}" th:href="@{/admin/product/views(page=${currentPage + 1})}"
+                               aria-label="Next" data-bs-toggle="tooltip" title="Trang tiếp theo">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                            <span class="page-link" th:unless="${currentPage + 1 < totalPages}">&raquo;</span>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+
+
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <footer th:replace="admin/fragments/footer::footer"></footer>
+
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 3 -->
+
+<div th:replace="admin/fragments/script::script"></div>
+</body>
+</html>

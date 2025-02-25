@@ -8,25 +8,26 @@ public class ProductDtoResponse {
     private String description;
     private BigDecimal price;
     private Integer stock;
-    private Integer categoryId;
-    private Integer colorId;
-    private Integer sizeId;
-    private Integer brandId;
+
+    private String colorName;
+    private String sizeName;
+    private String brandName;
+    private String nameCategory;
     private String imageUrl;
 
     public ProductDtoResponse() {
     }
 
-    public ProductDtoResponse(Integer id, String name, String description, BigDecimal price, Integer stock, Integer categoryId, Integer colorId, Integer sizeId, Integer brandId, String imageUrl) {
+    public ProductDtoResponse(Integer id, String name, String description, BigDecimal price, Integer stock, String colorName, String sizeName, String brandName, String nameCategory, String imageUrl) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.stock = stock;
-        this.categoryId = categoryId;
-        this.colorId = colorId;
-        this.sizeId = sizeId;
-        this.brandId = brandId;
+        this.colorName = colorName;
+        this.sizeName = sizeName;
+        this.brandName = brandName;
+        this.nameCategory = nameCategory;
         this.imageUrl = imageUrl;
     }
 
@@ -70,36 +71,36 @@ public class ProductDtoResponse {
         this.stock = stock;
     }
 
-    public Integer getCategoryId() {
-        return categoryId;
+    public String getColorName() {
+        return colorName;
     }
 
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
+    public void setColorName(String colorName) {
+        this.colorName = colorName;
     }
 
-    public Integer getColorId() {
-        return colorId;
+    public String getSizeName() {
+        return sizeName;
     }
 
-    public void setColorId(Integer colorId) {
-        this.colorId = colorId;
+    public void setSizeName(String sizeName) {
+        this.sizeName = sizeName;
     }
 
-    public Integer getSizeId() {
-        return sizeId;
+    public String getBrandName() {
+        return brandName;
     }
 
-    public void setSizeId(Integer sizeId) {
-        this.sizeId = sizeId;
+    public void setBrandName(String brandName) {
+        this.brandName = brandName;
     }
 
-    public Integer getBrandId() {
-        return brandId;
+    public String getNameCategory() {
+        return nameCategory;
     }
 
-    public void setBrandId(Integer brandId) {
-        this.brandId = brandId;
+    public void setNameCategory(String nameCategory) {
+        this.nameCategory = nameCategory;
     }
 
     public String getImageUrl() {
