@@ -13,9 +13,12 @@ public class ModelMapperConfig {
     public ModelMapper modelMapper(){
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.typeMap(Order.class, OrderDtoResponse.class)
-                .addMappings(mapper -> mapper
-                        .map(orderNho -> orderNho.getUser().getUsername(), OrderDtoResponse::setUserName));
-        return new ModelMapper();
+                .addMappings(mapper ->{
+                    mapper.map(orderNho -> orderNho.getUser().getFullName(), OrderDtoResponse::setFullName);
+
+                });
+
+        return modelMapper;
     }
 
 

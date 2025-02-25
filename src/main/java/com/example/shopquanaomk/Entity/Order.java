@@ -9,6 +9,8 @@ import org.hibernate.annotations.OnDeleteAction;
 
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 
 @Entity
@@ -35,6 +37,28 @@ public class Order {
     @CreationTimestamp
     @Column(name = "created_at")
     private Instant createdAt;
+
+    @OneToMany(mappedBy = "order" , cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<OrderItem> orderItems = new LinkedHashSet<>();
+
+    @OneToMany(mappedBy = "order")
+    private Set<Payment> payments = new LinkedHashSet<>();
+
+    public Set<Payment> getPayments() {
+        return payments;
+    }
+
+    public void setPayments(Set<Payment> payments) {
+        this.payments = payments;
+    }
+
+    public Set<OrderItem> getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderItems(Set<OrderItem> orderItems) {
+        this.orderItems = orderItems;
+    }
 
     public Order() {
     }
