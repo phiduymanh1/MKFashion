@@ -21,16 +21,16 @@ public class Size {
     @Column(name = "name", nullable = false, length = 50)
     private String name;
 
-    @OneToMany(mappedBy = "size",cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Product> products = new LinkedHashSet<>();
+    @OneToMany(mappedBy = "size")
+    private Set<ProductDetail> productDetails = new LinkedHashSet<>();
 
     public Size() {
     }
 
-    public Size(Integer id, String name, Set<Product> products) {
+    public Size(Integer id, String name, Set<ProductDetail> productDetails) {
         this.id = id;
         this.name = name;
-        this.products = products;
+        this.productDetails = productDetails;
     }
 
     public Integer getId() {
@@ -49,11 +49,11 @@ public class Size {
         this.name = name;
     }
 
-    public Set<Product> getProducts() {
-        return products;
+    public Set<ProductDetail> getProductDetails() {
+        return productDetails;
     }
 
-    public void setProducts(Set<Product> products) {
-        this.products = products;
+    public void setProductDetails(Set<ProductDetail> productDetails) {
+        this.productDetails = productDetails;
     }
 }

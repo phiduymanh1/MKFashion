@@ -1,7 +1,8 @@
 package com.example.shopquanaomk.Entity;
 
-import com.example.shopquanaomk.Enum.Role;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.Nationalized;
 
 import java.util.LinkedHashSet;
@@ -42,19 +43,22 @@ public class User {
 
     @Nationalized
     @Column(name = "role", nullable = false, length = 20)
-    @Enumerated(EnumType.STRING)
-    private Role role;
+    private String role;
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, orphanRemoval = true)
+    @Nationalized
+    @Column(name = "image_url")
+    private String imageUrl;
+
+    @OneToMany(mappedBy = "user")
     private Set<CartItem> cartItems = new LinkedHashSet<>();
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "user")
     private Set<Order> orders = new LinkedHashSet<>();
 
     public User() {
     }
 
-    public User(Integer id, String username, String email, String password, String fullName, String phone, String address, Role role, Set<CartItem> cartItems, Set<Order> orders) {
+    public User(Integer id, String username, String email, String password, String fullName, String phone, String address, String role, String imageUrl, Set<CartItem> cartItems, Set<Order> orders) {
         this.id = id;
         this.username = username;
         this.email = email;
@@ -63,6 +67,7 @@ public class User {
         this.phone = phone;
         this.address = address;
         this.role = role;
+        this.imageUrl = imageUrl;
         this.cartItems = cartItems;
         this.orders = orders;
     }
@@ -123,12 +128,20 @@ public class User {
         this.address = address;
     }
 
-    public Role getRole() {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public Set<CartItem> getCartItems() {

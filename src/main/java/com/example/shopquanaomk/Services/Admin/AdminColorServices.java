@@ -1,8 +1,7 @@
 package com.example.shopquanaomk.Services.Admin;
 
-import com.example.shopquanaomk.Config.ModelMapperConfig;
+import com.example.shopquanaomk.Config.ModelMapper.ModelMapperConfig;
 import com.example.shopquanaomk.Dto.ResponDto.ColorDtoReponse;
-import com.example.shopquanaomk.Entity.Color;
 import com.example.shopquanaomk.Repository.ColorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

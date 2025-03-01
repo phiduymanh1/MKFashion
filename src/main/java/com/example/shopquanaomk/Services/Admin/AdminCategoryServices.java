@@ -1,6 +1,6 @@
 package com.example.shopquanaomk.Services.Admin;
 
-import com.example.shopquanaomk.Config.ModelMapperConfig;
+import com.example.shopquanaomk.Config.ModelMapper.ModelMapperConfig;
 import com.example.shopquanaomk.Dto.ResponDto.CategoryDtoResponse;
 import com.example.shopquanaomk.Entity.Category;
 import com.example.shopquanaomk.Repository.CategoryRepository;

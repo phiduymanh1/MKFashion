@@ -1,4 +1,4 @@
-package com.example.shopquanaomk.Config;
+package com.example.shopquanaomk.Config.ModelMapper;
 
 import com.example.shopquanaomk.Dto.ResponDto.OrderDtoResponse;
 import com.example.shopquanaomk.Entity.Order;

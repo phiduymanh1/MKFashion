@@ -22,7 +22,16 @@ public class Brand {
     private String name;
 
     @OneToMany(mappedBy = "brand", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Product> products = new LinkedHashSet<>();
+    private Set<ProductDetail> productDetails = new LinkedHashSet<>();
+
+    public Brand() {
+    }
+
+    public Brand(Integer id, String name, Set<ProductDetail> productDetails) {
+        this.id = id;
+        this.name = name;
+        this.productDetails = productDetails;
+    }
 
     public Integer getId() {
         return id;
@@ -40,22 +49,11 @@ public class Brand {
         this.name = name;
     }
 
-    public Set<Product> getProducts() {
-        return products;
+    public Set<ProductDetail> getProductDetails() {
+        return productDetails;
     }
 
-    public void setProducts(Set<Product> products) {
-        this.products = products;
+    public void setProductDetails(Set<ProductDetail> productDetails) {
+        this.productDetails = productDetails;
     }
-
-    public Brand() {
-    }
-
-    public Brand(Integer id, String name, Set<Product> products) {
-        this.id = id;
-        this.name = name;
-        this.products = products;
-    }
-
-
 }

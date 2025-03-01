@@ -1,10 +1,8 @@
 package com.example.shopquanaomk.Services.Admin;
 
-import com.example.shopquanaomk.Config.ModelMapperConfig;
+import com.example.shopquanaomk.Config.ModelMapper.ModelMapperConfig;
 import com.example.shopquanaomk.Dto.ResponDto.BrandDtoResponse;
-import com.example.shopquanaomk.Entity.Brand;
 import com.example.shopquanaomk.Repository.BrandRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
