@@ -22,15 +22,15 @@ public class Color {
     private String name;
 
     @OneToMany(mappedBy = "color",cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Product> products = new LinkedHashSet<>();
+    private Set<ProductDetail> productDetails = new LinkedHashSet<>();
 
     public Color() {
     }
 
-    public Color(Integer id, String name, Set<Product> products) {
+    public Color(Integer id, String name, Set<ProductDetail> productDetails) {
         this.id = id;
         this.name = name;
-        this.products = products;
+        this.productDetails = productDetails;
     }
 
     public Integer getId() {
@@ -49,11 +49,11 @@ public class Color {
         this.name = name;
     }
 
-    public Set<Product> getProducts() {
-        return products;
+    public Set<ProductDetail> getProductDetails() {
+        return productDetails;
     }
 
-    public void setProducts(Set<Product> products) {
-        this.products = products;
+    public void setProductDetails(Set<ProductDetail> productDetails) {
+        this.productDetails = productDetails;
     }
 }
